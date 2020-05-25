@@ -14,11 +14,11 @@
 
 using namespace std;
 class Soldier{
-    public:
+public:
     int health_points;
     int damage;
     uint num_Of_Player;
-
+    
     Soldier(){}
     
     Soldier (int health_points, int damage, int num_Of_Player){
@@ -32,15 +32,16 @@ class Soldier{
         this->damage = 0;
     }
     
+ virtual ~Soldier() {}
     int getHealth_points(){
-         return health_points;
+        return health_points;
     }
     int getDamge(){
         return damage;
     }
     int getNum_Of_Player(){
-         return num_Of_Player;
-     }
-  virtual void activity(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> loc) = 0;;
-
+        return num_Of_Player;
+    }
+    virtual void activity(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> loc) = 0;;
+    
 };

@@ -6,16 +6,19 @@
 //  Copyright © 2020 Lee Fingerhut. All rights reserved.
 //
 #pragma once
-
 #include <iostream>
 #include <vector>
 #include <stdio.h>
 //#include <sys/param.h>
 
 using namespace std;
+namespace WarGame{
 class Soldier{
-public:
+protected:
+    enum SoldierID {FootSoldier, FootCommander, Sniper, SniperCommander, Paramedic, ParamedicCommander};
+    SoldierID type;
     int health_points;
+    int initial_health_points;
     int damage;
     uint num_Of_Player;
     
@@ -26,15 +29,21 @@ public:
         this->damage = damage;
         this->num_Of_Player = num_Of_Player;
     }
-    Soldier(int num_Of_Player){
-        this->num_Of_Player = num_Of_Player;
-        this->health_points = 0;
-        this->damage = 0;
-    }
     
- virtual ~Soldier() {}
+public:
+    virtual ~Soldier() {}
+    
+    SoldierID getType(){
+           return type;
+       }
     int getHealth_points(){
         return health_points;
+    }
+    void setHealth_points(int health_points){
+        this->health_points = health_points;
+    }
+    int getInitial_Health_Points(){
+        return this->initial_health_points;
     }
     int getDamge(){
         return damage;
@@ -42,6 +51,7 @@ public:
     int getNum_Of_Player(){
         return num_Of_Player;
     }
-    virtual void activity(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> loc) = 0;;
+    virtual void activity(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> loc) = 0;
     
 };
+}

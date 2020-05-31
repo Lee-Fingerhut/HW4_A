@@ -13,13 +13,13 @@
 #include "Soldier.hpp"
 
 using namespace std;
-
-class FootSoldier : public  Soldier {
+namespace WarGame{
+class FootSoldier : public Soldier {
 public:
-    FootSoldier(int player){
-        health_points = 100;
-        damage        = 10;
-        num_Of_Player = player;
+    FootSoldier(int player) : Soldier(100, 10, player){
+        initial_health_points = 100;
+        type = SoldierID::FootSoldier;
     }
-    virtual void activity(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> loc);
+    void activity(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> loc);
 };
+}

@@ -10,16 +10,20 @@
 #include <stdio.h>
 #include <iostream>
 #include <vector>
-#include "Soldier.hpp"
+#include "FootSoldier.hpp"
+
 
 using namespace std;
 
-class FootCommander : public  Soldier {
+namespace WarGame{
+class FootCommander : public FootSoldier {
 public:
-    FootCommander(int player){
+    FootCommander(int player) : FootSoldier(player){
         health_points = 150;
+        initial_health_points = 150;
         damage        = 20;
-        num_Of_Player = player;
+        type = SoldierID::FootCommander;
     }
- virtual void activity(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> loc);
+    void activity(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> loc);
 };
+}

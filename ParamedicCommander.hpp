@@ -9,16 +9,19 @@
 #include <stdio.h>
 #include <iostream>
 #include <vector>
-#include "Soldier.hpp"
+#include "Paramedic.hpp"
 
 using namespace std;
-
-class ParamedicCommander : public  Soldier {
+namespace WarGame{
+class ParamedicCommander : public  Paramedic {
 public:
-    ParamedicCommander(int player){
+    ParamedicCommander(int player) : Paramedic(player){
         health_points = 200;
+        initial_health_points = 200;
         damage        = 100;
-        num_Of_Player = player;
+        type = SoldierID::ParamedicCommander;
+
     }
-       virtual void activity(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> loc);
+        void activity(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> loc);
 };
+}

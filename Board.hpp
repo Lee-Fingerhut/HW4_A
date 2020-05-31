@@ -1,11 +1,3 @@
-//
-//  Board.hpp
-//  wargame-a
-//
-//  Created by Lee Fingerhut on 22/05/2020.
-//  Copyright © 2020 Lee Fingerhut. All rights reserved.
-//
-
 #include <string>
 #include <vector>
 #include <stdexcept>
@@ -13,16 +5,20 @@
 
 
 namespace WarGame {
-
+/*class ex: public exception {
+ virtual const char* what() const throw() {
+ return "There is no enemies";
+ }
+ };
+ */
 class Board {
-  private:
+private:
     std::vector<std::vector<Soldier*>> board;
-  public:
+public:
     enum MoveDIR { Up, Down, Right, Left };
     
-    Board(uint numRows, uint numCols) :
-      board(numRows, std::vector<Soldier*>(numCols, nullptr)) {}
-
+    Board(uint numRows, uint numCols) : board(numRows, std::vector<Soldier*>(numCols, nullptr)) {}
+    
     // operator for putting soldiers on the game-board during initialization.
     Soldier*& operator[](std::pair<int,int> location);
     
@@ -41,10 +37,21 @@ class Board {
     // Your code should be generic. All handling of different types of soldiers
     //      must be handled by polymorphism.
     void move(uint player_number, std::pair<int,int> source, MoveDIR direction);
-
+    
     // returns true iff the board contains one or more soldiers of the given player.
     bool has_soldiers(uint player_number) const;
+    
+    void print() {
+        Soldier* s = nullptr;
+        for(int i=0; i<board.size(); i++){
+            for(int j=0; j<board[i].size(); j++){
+                s = board[i][j];
+                if (s != nullptr) {
+                    cout << "player " << s->getNum_Of_Player() << " at (" << i << "," << j << ")" << " has " << s->getHealth_points() << " health points" << std::endl;
+                }
+            }
+        }
+    }
 };
 
 }
-

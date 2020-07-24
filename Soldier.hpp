@@ -26,7 +26,7 @@ protected:
     
     Soldier(){}
     
-    Soldier (int health_points, int damage, int num_Of_Player){
+    Soldier(int health_points, int damage, int num_Of_Player){
         this->health_points = health_points;
         this->damage = damage;
         this->num_Of_Player = num_Of_Player;
@@ -37,7 +37,8 @@ public:
     
     SoldierID getType(){
            return type;
-       }
+    }
+
     int getHealth_points(){
         return health_points;
     }
@@ -53,6 +54,7 @@ public:
     int getNum_Of_Player(){
         return num_Of_Player;
     }
+
     virtual void activity(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> loc) = 0;
     
 };

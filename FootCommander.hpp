@@ -3,10 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "FootSoldier.hpp"
-
-
 using namespace std;
-
 
 class FootCommander : public FootSoldier {
 public:

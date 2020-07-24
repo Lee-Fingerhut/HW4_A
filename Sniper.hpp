@@ -13,6 +13,7 @@
 
 using namespace std;
 
+//Shoots the strongest soldier of the enemy - the one who has the most health points. can move one step
 class Sniper : public Soldier {
 public:
     Sniper(int player) : Soldier(100, 50, player){

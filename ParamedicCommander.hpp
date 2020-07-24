@@ -12,7 +12,7 @@
 #include "Paramedic.hpp"
 
 using namespace std;
-namespace WarGame{
+
 class ParamedicCommander : public  Paramedic {
 public:
     ParamedicCommander(int player) : Paramedic(player){
@@ -24,4 +24,3 @@ public:
     }
         void activity(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> loc);
 };
-}

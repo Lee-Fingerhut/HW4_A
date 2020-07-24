@@ -9,10 +9,12 @@
 #include <iostream>
 #include <vector>
 #include <stdio.h>
+#include <typeinfo>
+#include <iomanip>
 //#include <sys/param.h>
 
 using namespace std;
-namespace WarGame{
+
 class Soldier{
 protected:
     enum SoldierID {FootSoldier, FootCommander, Sniper, SniperCommander, Paramedic, ParamedicCommander};
@@ -54,4 +56,3 @@ public:
     virtual void activity(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> loc) = 0;
     
 };
-}

@@ -1,11 +1,3 @@
-//
-//  FootCommander.hpp
-//  wargame-a
-//
-//  Created by Lee Fingerhut on 22/05/2020.
-//  Copyright © 2020 Lee Fingerhut. All rights reserved.
-//
-
 #pragma once
 #include <stdio.h>
 #include <iostream>
@@ -15,7 +7,7 @@
 
 using namespace std;
 
-namespace WarGame{
+
 class FootCommander : public FootSoldier {
 public:
     FootCommander(int player) : FootSoldier(player){
@@ -26,4 +18,3 @@ public:
     }
     void activity(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> loc);
 };
-}
